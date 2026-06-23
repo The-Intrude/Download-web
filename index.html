@@ -28,7 +28,15 @@ body{
 background:var(--bg);
 color:#fff;
 overflow-x:hidden;
-font-size:18px;
+font-size:15px;
+font-weight:400;
+line-height:1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family:"ScaryFont", sans-serif;
+    font-weight:400;
+    letter-spacing:0.04em;
 }
 
 /* CURSOR */
@@ -57,10 +65,12 @@ animation:introFade 3.5s forwards;
 }
 
 #intro h1{
-font-size:4.5rem;
+font-size:2.6rem;
 color:red;
 text-shadow:0 0 20px red,0 0 60px red;
 animation:logoPulse 2s;
+font-family:"ScaryFont", sans-serif;
+letter-spacing:0.06em;
 }
 
 @keyframes introFade{
@@ -84,7 +94,7 @@ z-index:9999;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:14px 32px;
 background:rgba(0,0,0,.6);
 backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,0,0,.1);
@@ -92,15 +102,19 @@ border-bottom:1px solid rgba(255,0,0,.1);
 
 nav h2{
 color:red;
-font-size:1.3rem;
+font-size:1rem;
+font-family:"ScaryFont", sans-serif;
+letter-spacing:0.04em;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 opacity:.7;
-margin-left:15px;
+margin-left:14px;
 transition:.3s;
+font-size:0.85rem;
+font-weight:500;
 }
 
 nav a:hover{
@@ -108,7 +122,7 @@ color:red;
 opacity:1;
 }
 
-/* INTRO FIX SYSTEM */
+/* INTRO FIX */
 body:not(.ready) section{
 opacity:0;
 transform:scale(0.95);
@@ -128,18 +142,18 @@ transform:scale(1) !important;
 filter:blur(0) !important;
 }
 
-/* SECTION */
+/* SECTION – căn trái trừ hero */
 section{
 min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
-padding:120px 10%;
+padding:100px 8%;
 transition:.8s;
 overflow:hidden;
+text-align:left;
 }
 
-/* HERO */
 #hero{
 text-align:center;
 background:
@@ -150,73 +164,97 @@ background-position:center;
 }
 
 #hero h1{
-font-size:7rem;
+font-size:4.2rem;
 color:var(--red);
 text-shadow:0 0 25px red,0 0 60px darkred;
+font-family:"ScaryFont", sans-serif;
+letter-spacing:0.06em;
 }
 
 #hero p{
-font-size:1.3rem;
+font-size:0.95rem;
 color:#ccc;
 max-width:700px;
-margin:auto;
-margin-top:20px;
+margin:14px auto 0;
+font-weight:300;
 }
 
 /* TITLES */
 section h2{
-font-size:3rem;
-text-align:center;
+font-size:2rem;
+text-align:left;
 color:var(--red);
-margin-bottom:30px;
+margin-bottom:16px;
+font-family:"ScaryFont", sans-serif;
+letter-spacing:0.04em;
 }
 
 .desc{
-text-align:center;
+text-align:left;
 color:#aaa;
-margin-bottom:30px;
+margin-bottom:28px;
+font-size:0.9rem;
 }
 
 /* FEATURES */
 .feature-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
 }
 
 .feature-card{
 background:var(--card);
-padding:25px;
+padding:22px 20px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.08);
 transition:.3s;
+text-align:left;
 }
 
 .feature-card:hover{
-transform:translateY(-10px) scale(1.03);
+transform:translateY(-8px) scale(1.02);
 box-shadow:0 0 30px rgba(255,0,0,.2);
 }
 
-/* DOWNLOAD */
+.feature-card h3{
+font-size:1.15rem;
+color:#fff;
+margin-bottom:6px;
+font-family:"ScaryFont", sans-serif;
+letter-spacing:0.03em;
+}
+
+.feature-card p{
+font-size:0.85rem;
+color:#bbb;
+font-weight:300;
+}
+
+/* DOWNLOAD – icon + text căn trái, flex ngang */
 .store-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
 }
 
 .store-btn{
 background:var(--card);
-padding:25px;
+padding:16px 20px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.08);
-text-align:center;
 cursor:not-allowed;
 transition:.3s;
 position:relative;
+color:#fff;
+display:flex;
+align-items:center;
+gap:14px; /* khoảng cách giữa icon và text */
+text-align:left;
 }
 
 .store-btn:hover{
-transform:translateY(-10px) scale(1.03);
+transform:translateY(-8px) scale(1.02);
 box-shadow:0 0 40px rgba(255,0,0,.25);
 }
 
@@ -225,70 +263,100 @@ opacity:.6;
 filter:grayscale(1);
 }
 
+/* Badge "IN DEVELOPMENT" bên phải */
 .store-btn.locked::after{
 content:"IN DEVELOPMENT";
 position:absolute;
-top:10px;
-right:10px;
-font-size:10px;
+top:8px;
+right:8px;
+font-size:8px;
 background:red;
-padding:4px 8px;
+padding:3px 8px;
 border-radius:999px;
+font-weight:600;
+font-family:"ScaryFont", sans-serif;
+color:#fff;
+white-space:nowrap;
 }
 
-.store-btn div{
-font-size:1.2rem;
-margin-top:6px;
+.store-btn .icon{
+width:32px;
+height:32px;
+flex-shrink:0;
 }
 
-.store-btn small{
-display:block;
-margin-top:6px;
-color:#888;
+.store-btn .store-info{
+display:flex;
+flex-direction:column;
 }
 
-.icon{
-width:42px;
-height:42px;
-margin-bottom:10px;
+.store-btn .store-name{
+font-size:0.95rem;
+font-weight:600;
+line-height:1.2;
 }
+
+/* không có dòng mô tả phụ */
 
 /* CREDITS */
 #credits-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:18px;
 }
 
 .credit-card{
 background:var(--card);
-padding:25px;
+padding:20px 18px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.08);
 text-decoration:none;
 color:white;
 transition:.3s;
 cursor:pointer;
+display:block;
+text-align:left;
 }
 
 .credit-card:hover{
-transform:translateY(-10px);
+transform:translateY(-8px);
 border-color:red;
 box-shadow:0 0 40px rgba(255,0,0,.25);
 }
 
-.credit-role{
-color:#ff4d4d;
-font-size:14px;
-margin-top:8px;
+.credit-card div:first-child{
+font-size:1rem;
+font-weight:600;
 }
 
-/* FOOTER */
+.credit-role{
+color:#ff4d4d;
+font-size:0.8rem;
+margin-top:4px;
+font-weight:400;
+}
+
 footer{
 text-align:center;
-padding:40px;
+padding:32px 20px;
 color:#777;
 border-top:1px solid rgba(255,255,255,.08);
+font-size:0.8rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px){
+#hero h1{font-size:2.8rem;}
+section h2{font-size:1.6rem;}
+#intro h1{font-size:1.8rem;}
+nav{padding:10px 16px; flex-wrap:wrap; gap:6px;}
+nav a{font-size:0.75rem; margin-left:10px;}
+section{padding:80px 5%;}
+.feature-grid{grid-template-columns:1fr;}
+.store-grid{grid-template-columns:1fr;}
+#credits-grid{grid-template-columns:1fr;}
+.store-btn{padding:14px 16px; gap:12px;}
+.store-btn.locked::after{font-size:7px; padding:2px 6px;}
 }
 </style>
 </head>
@@ -345,21 +413,24 @@ border-top:1px solid rgba(255,255,255,.08);
 <div class="store-grid">
 
 <div class="store-btn locked">
-<img class="icon" src="Steam_icon.png">
-<div>Steam</div>
-<small>In development</small>
+<img class="icon" src="Steam_icon.png" alt="Steam" />
+<div class="store-info">
+    <div class="store-name">Steam</div>
+</div>
 </div>
 
 <div class="store-btn locked">
-<img class="icon" src="Google_Play_icon.png">
-<div>Google Play</div>
-<small>In development</small>
+<img class="icon" src="Google_Play_icon.png" alt="Google Play" />
+<div class="store-info">
+    <div class="store-name">Google Play</div>
+</div>
 </div>
 
 <div class="store-btn locked">
-<img class="icon" src="App_Store_icon.png">
-<div>App Store</div>
-<small>In development</small>
+<img class="icon" src="App_Store_icon.png" alt="App Store" />
+<div class="store-info">
+    <div class="store-name">App Store</div>
+</div>
 </div>
 
 </div>
@@ -370,24 +441,24 @@ border-top:1px solid rgba(255,255,255,.08);
 
 <div id="credits-grid">
 
-<a class="credit-card" href="https://www.tiktok.com/@coolkidthickdraw?_r=1&_t=ZS-97QVvLHX1OP" target="_blank">
-<div>Coolkid thick đờ ro</div>
-<div class="credit-role">Artist</div>
-</a>
-
 <a class="credit-card" href="https://www.tiktok.com/@tt_erix?_r=1&_t=ZS-97QVwHrjI05" target="_blank">
 <div>Erix</div>
 <div class="credit-role">Owner</div>
 </a>
 
-<a class="credit-card" href="https://www.tiktok.com/@talachuotnek78?_r=1&_t=ZS-97QVymemOsX" target="_blank">
-<div>hellohung gaming and coding</div>
-<div class="credit-role">Developer</div>
-</a>
-
 <a class="credit-card" href="https://www.tiktok.com/@dbakd_01?_r=1&_t=ZS-97QVznU83me" target="_blank">
 <div>DevBlzAlphaK1DXD</div>
 <div class="credit-role">Developer</div>
+</a>
+
+<a class="credit-card" href="https://www.tiktok.com/@talachuotnek78?_r=1&_t=ZS-97QVymemOsX" target="_blank">
+<div>hellohung78 coding and gaming</div>
+<div class="credit-role">Developer</div>
+</a>
+
+<a class="credit-card" href="https://www.tiktok.com/@coolkidthickdraw?_r=1&_t=ZS-97QVvLHX1OP" target="_blank">
+<div>Coolkid thick đờ ro</div>
+<div class="credit-role">Artist</div>
 </a>
 
 </div>
@@ -398,15 +469,12 @@ border-top:1px solid rgba(255,255,255,.08);
 </footer>
 
 <script>
-
-/* INTRO FIX */
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.body.classList.add("ready");
     }, 3500);
 });
 
-/* SCROLL REVEAL */
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver((entries)=>{
@@ -419,14 +487,12 @@ const observer = new IntersectionObserver((entries)=>{
 
 sections.forEach(s=>observer.observe(s));
 
-/* CURSOR */
 const cursor = document.querySelector(".cursor-glow");
 
 document.addEventListener("mousemove", e=>{
 cursor.style.left = e.clientX + "px";
 cursor.style.top = e.clientY + "px";
 });
-
 </script>
 
 </body>
