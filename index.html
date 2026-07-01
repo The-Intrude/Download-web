@@ -222,6 +222,18 @@ width:28px;
 height:28px;
 }
 
+.store-btn .store-info{
+display:flex;
+flex-direction:column;
+gap:2px;
+}
+
+.store-btn .predicted{
+font-size:0.7rem;
+color:#ff6b6b;
+opacity:.85;
+}
+
 /* 🔥 FIXED BADGE */
 .store-btn.locked::after{
 content:"IN DEVELOPMENT";
@@ -334,17 +346,26 @@ section h2{font-size:1.4rem;}
 
 <div class="store-btn locked">
 <img class="icon" src="Steam_icon.png">
+<div class="store-info">
 <div>Steam</div>
+<div class="predicted">Predicted release: 2030–2033</div>
+</div>
 </div>
 
 <div class="store-btn locked">
 <img class="icon" src="Google_Play_icon.png">
+<div class="store-info">
 <div>Google Play</div>
+<div class="predicted">Predicted release: 2031–2035</div>
+</div>
 </div>
 
 <div class="store-btn locked">
 <img class="icon" src="App_Store_icon.png">
+<div class="store-info">
 <div>App Store</div>
+<div class="predicted">Predicted release: 2033–2035</div>
+</div>
 </div>
 
 </div>
@@ -385,6 +406,7 @@ section h2{font-size:1.4rem;}
 </div>
 
 </div>
+
 </section>
 
 <footer>
